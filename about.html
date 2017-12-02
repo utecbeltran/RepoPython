@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Controlador UCCI para proyecto de ICC">
+		<meta nanme="keywords" content="UCCI, ICC, Proyecto, Python">
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<title>UCCI Control Panel</title>
+
+	</head>
+
+	<body>
+		<header>
+			<div id="top">
+				<font color="#ffffff"><h1>UCCI - SmartHouse</h1></font>
+				<br />
+			</div>
+		</header>
+
+		<section id="body">
+			<!-- Navegador del Header -->
+			<section id="Navegador">
+				<nav>
+					<a href="index.html">Control Panel</a>	
+					<a href="about.html">About Us</a>	
+				</nav>
+			</section>
+
+	<!-- Funcion de Fecha y Hora -->
+				<script type="text/javascript">
+				function GetClock(){
+				var d=new Date();
+				var nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+				var nhour=d.getHours(),nmin=d.getMinutes(),ap;
+				if(nhour==0){ap=" AM";nhour=12;}
+				else if(nhour<12){ap=" AM";}
+				else if(nhour==12){ap=" PM";}
+				else if(nhour>12){ap=" PM";nhour-=12;}
+
+				if(nmin<=9) nmin="0"+nmin;
+
+				document.getElementById('clockbox').innerHTML=""+ndate+"/"+(nmonth+1)+"/"+nyear+" "+nhour+":"+nmin+ap+"";
+				}
+
+				window.onload=function(){
+				GetClock();
+				setInterval(GetClock,1000);
+				}
+				</script>
+				<font color="#ffffff"><div id="clockbox" style="text-align: left;"></div></font>
+				<br />
+
+		<div id="wrap">
+			<font color="#ffffff"><h2>About us</h2>
+				<br />
+			<p>
+				Nuestro proyecto de Unidad de Contol de Casa Inteligente (UCCI) fue creado con el proposito de experimentar <br />con herramientas como Raspberry Pi 3 y diferentes lenguajes de programacion como JavaScript, PHP, HTML<br /> y Python para realizar un proyecto diferente a los demas vistos en el curso de ICC. <br />En el proceso tuvimos muchos momentos de frustracion, pero con esfuerzo logramos superarlos y <br />asi llegar a un resultado el cual nos enorgullece.
+				<br />
+				<br />
+				- Luis Miranda, Javier Mundaca, Juan Pablo Beltran.
+			</p>
+			</font>
+
+		</div>
+
+
+</body>
+</html>

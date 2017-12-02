@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Controlador UCCI para proyecto de ICC">
+		<meta nanme="keywords" content="UCCI, ICC, Proyecto, Python">
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<title>UCCI Control Panel</title>
+
+		<!-- Funcion Activacion Botones -->
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#prendido").click(function(){
+
+						$.ajax({
+							type: "POST",
+							url: "prendido.php",
+							success: function() {
+								alert("Email sent successfully");
+							}
+						});
+					});.0		 
+				});
+			</script>
+
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#apagado").click(function(){
+
+						$.ajax({
+							type: "POST",
+							url: "apagado.php",
+							success: function() {
+								alert("Email sent successfully");
+							}
+						});
+					});.0		 
+				});
+			</script>
+
+	</head>
+
+	<body>
+		<header>
+			<div id="top">
+				<font color="#ffffff"><h1>UCCI - SmartHouse</h1></font>
+				<br />
+			</div>
+		</header>
+
+		<section id="body">
+			<!-- Navegador del Header -->
+			<section id="Navegador">
+				<nav>
+					<a href="index.html">Control Panel</a>	
+					<a href="about.html">About Us</a>	
+				</nav>
+			</section>
+
+			<!-- Funcion de Fecha y Hora -->
+				<script type="text/javascript">
+				function GetClock(){
+				var d=new Date();
+				var nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+				var nhour=d.getHours(),nmin=d.getMinutes(),ap;
+				if(nhour==0){ap=" AM";nhour=12;}
+				else if(nhour<12){ap=" AM";}
+				else if(nhour==12){ap=" PM";}
+				else if(nhour>12){ap=" PM";nhour-=12;}
+
+				if(nmin<=9) nmin="0"+nmin;
+
+				document.getElementById('clockbox').innerHTML=""+ndate+"/"+(nmonth+1)+"/"+nyear+" "+nhour+":"+nmin+ap+"";
+				}
+
+				window.onload=function(){
+				GetClock();
+				setInterval(GetClock,1000);
+				}
+				</script>
+				<font color="#ffffff"><div id="clockbox" style="text-align: left;"></div></font>
+				<br />
+			<!-- Funcion de Controladores -->
+				<div id="subheader">
+					<font color="#ffffff"><h2>Control Panel</h2></font>
+				</div>
+				<br />
+			<!-- Controlador de luces del Primer Piso -->
+			
+					<font color="#ffffff"><h2>Turn On</h2></font>
+						<div id=prendido>
+							<img src="https://i.imgur.com/9GH4bbD.png">
+						</div>
+			<!-- Controlador de luces del Segundo Piso -->
+					<font color="#ffffff"><h2>Turn Off</h2></font>
+						<div id=apagado>
+							<img src="https://i.imgur.com/ex4yLt9.png">
+						</div>
+		</section>
+
+	</body>
+
+</html>
